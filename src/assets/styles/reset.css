@@ -67,6 +67,18 @@ select {
   font: inherit;
 }
 
+:root {
+  --counter-as-color: #9cc062;
+  --counter-us-color: #349db4;
+  --counter-sw-color: #5260a9;
+  --counter-ud-color: #dbbe5e;
+  --counter-ad-color: #a11f1d;
+
+  --black-main-color: #292b2c;
+  --light-gray-color: #f7f7f7;
+  --dark-red-color: #d9534f;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   * {
