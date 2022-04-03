@@ -34,6 +34,10 @@
   font-weight: lighter;
 }
 
+#count .board-header .title h3 span.total-users {
+  display: inline-block;
+}
+
 #count .board-header .reset {
   width: 75px;
   align-self: center;
