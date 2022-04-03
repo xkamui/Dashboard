@@ -1,26 +1,30 @@
+import React from "react";
+import Logs from "./Logs";
+
 export default function RecentLogs() {
+  const urlAPI =
+    "https://www.sir-keichi.com/SK1-api/index.php/user/logs?limit=30";
+  const [logValues, setLogValues] = React.useState([]);
+
+  const controller = new AbortController();
+  const signal = controller.signal;
+
+  React.useEffect(() => {
+    fetch(urlAPI, { signal })
+      .then((response) => response.json())
+      .then((data) => {
+        setLogValues(data);
+      });
+    return () => controller.abort();
+  }, []);
+
   return (
     <div className="logs">
       <div className="header">Most recently added: </div>
-      <div className="log">
-        <span className="timestamp">2022-03-06 00:19:14</span>
-        <span className="charname">Marshall Franklin ()</span>
-      </div>
-      <div className="log">
-        <span className="timestamp">2022-03-03 13:14:33</span>
-        <span className="charname">Tayah Burks ()</span>
-      </div>
-      <div className="log">
-        <span className="timestamp">2022-03-03 13:14:00</span>
-        <span className="charname">Nile Martins ()</span>
-      </div>
-      <div className="log">
-        <span className="timestamp">2022-02-20 02:12:17</span>
-        <span className="charname">Tyra Mcgrath ()</span>
-      </div>
-      <div className="log">
-        <span className="timestamp">2022-02-08 10:16:19</span>
-        <span className="charname">Cavan Reeve ()</span>
+      <div className="wrapper">
+        {logValues.map((user) => (
+          <Logs key={user.id} props={user} />
+        ))}
       </div>
     </div>
   );

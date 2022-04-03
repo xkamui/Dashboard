@@ -17,3 +17,9 @@ body,
   grid-template-rows: repeat(2, 1fr);
   height: 100%;
 }
+
+#container .board {
+  height: 100%;
+  max-height: 50vh;
+  overflow: hidden;
+}
