@@ -1,10 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./assets/styles/reset.css";
+import "./assets/styles/App.css";
+import Counter from "./Counter";
+import Notes from "./Notes";
+import Logs from "./Logs";
+import Helper from "./Helper";
 
 function App() {
   return (
-    <div className="App">
-      SK1 - Dashboard
+    <div id="container" className="App">
+      <Counter />
+      <Notes />
+      <Logs />
+      <Helper />
     </div>
   );
 }
