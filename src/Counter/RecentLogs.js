@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import Logs from "./Logs";
 
 export default function RecentLogs() {
@@ -6,16 +7,10 @@ export default function RecentLogs() {
     "https://www.sir-keichi.com/SK1-api/index.php/user/logs?limit=30";
   const [logValues, setLogValues] = React.useState([]);
 
-  const controller = new AbortController();
-  const signal = controller.signal;
-
   React.useEffect(() => {
-    fetch(urlAPI, { signal })
-      .then((response) => response.json())
-      .then((data) => {
-        setLogValues(data);
-      });
-    return () => controller.abort();
+    axios.get(urlAPI).then((res) => {
+      setLogValues(res.data);
+    });
   }, []);
 
   return (

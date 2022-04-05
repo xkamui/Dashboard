@@ -1,5 +1,6 @@
 import "../assets/styles/Counter.css";
 import React from "react";
+import axios from "axios";
 import Chart from "./Chart";
 import Header from "./Header";
 import RecentLogs from "./RecentLogs";
@@ -9,16 +10,10 @@ export default function Counter() {
   const urlAPI = "https://www.sir-keichi.com/SK1-api/index.php/count/all";
   const [chartValues, setChartValues] = React.useState([]);
 
-  const controller = new AbortController();
-  const signal = controller.signal;
-
   React.useEffect(() => {
-    fetch(urlAPI, { signal })
-      .then((response) => response.json())
-      .then((data) => {
-        setChartValues(data);
-      });
-    return () => controller.abort();
+    axios.get(urlAPI).then((res) => {
+      setChartValues(res.data);
+    });
   }, []);
 
   return (
