@@ -1,9 +1,9 @@
 import "./assets/styles/reset.css";
 import "./assets/styles/App.css";
-import Counter from "./Counter";
-import Notes from "./Notes";
-import Logs from "./Logs";
-import Helper from "./Helper";
+import Counter from "./components/Counter";
+import Notes from "./components/Notes";
+import Logs from "./components/Logs";
+import Helper from "./components/Helper";
 
 function App() {
   return (

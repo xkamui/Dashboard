@@ -1,10 +1,12 @@
-export default function Header(props) {
-  const currCounter = props.chartValues.reduce(
-    (acc, val) => acc + val.count,
-    0
-  );
+import React, { useContext } from "react";
+import CounterChartContext from "../../contexts/CounterChartContext";
+
+export default function Header() {
+  const { chartValues } = useContext(CounterChartContext);
+
+  const currCounter = chartValues.reduce((acc, val) => acc + val.count, 0);
   const fullCounter =
-    props.chartValues.reduce((acc, val) => acc + val.fulls, 0) + currCounter;
+    chartValues.reduce((acc, val) => acc + val.fulls, 0) + currCounter;
 
   return (
     <div className="board-header">
