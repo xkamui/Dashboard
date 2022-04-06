@@ -202,27 +202,35 @@
 #count .wrapper .search #autocompleteUserNames {
   position: absolute;
   left: 0;
-  top: 85%;
+  top: 58px;
   right: 0;
+  display: none;
+  height: 150px;
+  overflow: hidden;
+  overflow-y: auto;
   border: 1px solid var(--light-gray-color);
 }
 
-#count .wrapper .search #autocompleteUserNames .username {
+#count .wrapper .search #autocompleteUserNames.active {
+  display: block;
+}
+
+#count .wrapper .search #autocompleteUserNames .userButton {
   display: block;
   width: 100%;
   border-bottom: 1px dashed var(--light-gray-color);
   background: var(--light-gray-color);
 }
 
-#count .wrapper .search #autocompleteUserNames .username:nth-child(odd) {
+#count .wrapper .search #autocompleteUserNames .userButton:nth-child(odd) {
   background: #ffffff;
 }
 
-#count .wrapper .search #autocompleteUserNames .username:last-child {
+#count .wrapper .search #autocompleteUserNames .userButton:last-child {
   border-bottom: none;
 }
 
-#count .wrapper .search #autocompleteUserNames .username button {
+#count .wrapper .search #autocompleteUserNames .userButton button {
   display: block;
   width: 100%;
   height: 100%;
@@ -238,7 +246,7 @@
   background: none;
 }
 
-#count .wrapper .search #autocompleteUserNames .username button:hover {
+#count .wrapper .search #autocompleteUserNames .userButton button:focus {
   font-family: "OpenSans-Bold";
 }
 

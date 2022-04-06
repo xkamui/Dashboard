@@ -6,19 +6,32 @@ import Header from "./Header";
 import RecentLogs from "./RecentLogs";
 import SearchBar from "./SearchBar";
 import CounterChartContext from "../../contexts/CounterChartContext";
+import CounterUsersContext from "../../contexts/CounterUsersContext";
 
 export default function Counter() {
-  const urlAPI = "https://www.sir-keichi.com/SK1-api/index.php/count/all";
+  const urlCountAllAPI =
+    "https://www.sir-keichi.com/SK1-api/index.php/count/all";
   const [chartValues, setChartValues] = React.useState([]);
 
+  const urlUsersAllAPI =
+    "https://www.sir-keichi.com/SK1-api/index.php/count/allusers";
+  const [listUsers, setListUsers] = React.useState([]);
+
   function getChartValues() {
-    axios.get(urlAPI).then((res) => {
+    axios.get(urlCountAllAPI).then((res) => {
       setChartValues(res.data);
+    });
+  }
+
+  function getListUsers() {
+    axios.get(urlUsersAllAPI).then((res) => {
+      setListUsers(res.data);
     });
   }
 
   React.useEffect(() => {
     getChartValues();
+    getListUsers();
   }, []);
 
   return (
@@ -33,8 +46,16 @@ export default function Counter() {
         <Header />
         <div className="wrapper">
           <Chart />
-          <SearchBar />
-          <RecentLogs />
+          <CounterUsersContext.Provider
+            value={{
+              listUsers: listUsers,
+              setListUsers: setListUsers,
+              getListUsers: getListUsers,
+            }}
+          >
+            <SearchBar />
+            <RecentLogs />
+          </CounterUsersContext.Provider>
         </div>
       </div>
     </CounterChartContext.Provider>
