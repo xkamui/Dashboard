@@ -7,9 +7,13 @@ export default function SearchBar() {
   const [searchValue, setSearchValue] = React.useState("");
   const [searchActive, setSearchActive] = React.useState(false);
 
-  function handleSearch(str){
+  function handleSearch(str) {
     setSearchValue(str);
     setSearchActive(true);
+  }
+
+  function clearSearch() {
+    setSearchValue("");
   }
 
   return (
@@ -24,10 +28,23 @@ export default function SearchBar() {
         id="searchUserName"
         onChange={(e) => handleSearch(e.target.value)}
       />
-      <button tabIndex="-1">Fetch</button>
+      <button
+        tabIndex="-2"
+        className={`clearButton ${searchValue !== "" ? "active" : ""}`}
+        onClick={() => clearSearch()}
+      >
+        <span>
+          <em>×</em>
+        </span>
+      </button>
+      <button tabIndex="-1" className="fetchButton">
+        Fetch
+      </button>
       <div
         id="autocompleteUserNames"
-        className={`autocomplete ${(searchValue !== "" && searchActive) ? "active" : ""}`}
+        className={`autocomplete ${
+          searchValue !== "" && searchActive ? "active" : ""
+        }`}
       >
         {listUsers
           ?.filter((user) =>
