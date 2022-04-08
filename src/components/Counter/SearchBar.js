@@ -5,6 +5,12 @@ import SearchResult from "./SearchResult";
 export default function SearchBar() {
   const { listUsers } = useContext(CounterUsersContext);
   const [searchValue, setSearchValue] = React.useState("");
+  const [searchActive, setSearchActive] = React.useState(false);
+
+  function handleSearch(str){
+    setSearchValue(str);
+    setSearchActive(true);
+  }
 
   return (
     <div className="search">
@@ -16,12 +22,12 @@ export default function SearchBar() {
         className="text"
         value={searchValue}
         id="searchUserName"
-        onChange={(e) => setSearchValue(e.target.value)}
+        onChange={(e) => handleSearch(e.target.value)}
       />
       <button tabIndex="-1">Fetch</button>
       <div
         id="autocompleteUserNames"
-        className={`autocomplete ${searchValue !== "" ? "active" : ""}`}
+        className={`autocomplete ${(searchValue !== "" && searchActive) ? "active" : ""}`}
       >
         {listUsers
           ?.filter((user) =>
@@ -36,6 +42,8 @@ export default function SearchBar() {
                 user: user,
                 searchValue: searchValue,
                 setSearchValue: setSearchValue,
+                searchActive: searchActive,
+                setSearchActive: setSearchActive,
               }}
             />
           ))}
