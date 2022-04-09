@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import axios from "axios";
 import Flag from "./Flag";
 
@@ -52,7 +51,11 @@ export default function AdminFlags() {
 
   // Update elements while searching
   const handleSearch = (str) => {
-    setFlagObject({ ...flagObject, term: str });
+    if (str.length === 0) {
+      setFlagObject(emptyFlag);
+    } else {
+      setFlagObject({ ...flagObject, term: str });
+    }
   };
 
   const urlFlagDeleteAPI =
@@ -67,8 +70,7 @@ export default function AdminFlags() {
   };
 
   return (
-    <div className="board-header">
-      <NavLink to="/">home</NavLink>
+    <div className="wrapperAdmin">
       <div className="newFlagForm">
         <div className="formRow">
           <label htmlFor="newFlagTerm">Filter or create a new flag: </label>
@@ -80,7 +82,7 @@ export default function AdminFlags() {
             onChange={(e) => handleSearch(e.target.value)}
           />
           <button
-            className={`badGood ${!flagObject.good_bad ? "active" : ""}`}
+            className={`badGood bad ${!flagObject.good_bad ? "active" : ""}`}
             onClick={() =>
               setFlagObject({ ...flagObject, good_bad: !flagObject.good_bad })
             }
@@ -88,7 +90,7 @@ export default function AdminFlags() {
             bad
           </button>
           <button
-            className={`badGood ${flagObject.good_bad ? "active" : ""}`}
+            className={`badGood good ${flagObject.good_bad ? "active" : ""}`}
             onClick={() =>
               setFlagObject({ ...flagObject, good_bad: !flagObject.good_bad })
             }
@@ -97,23 +99,28 @@ export default function AdminFlags() {
           </button>
         </div>
         <div className="formRow">
-          <button onClick={() => saveNewFlag()}>{`Save ${
-            flagObject.id === null ? "as a new" : ""
-          } flag`}</button>
+          <button
+            className="saveFlagButton"
+            onClick={() => saveNewFlag()}
+          >{`Save ${flagObject.id === null ? "as a new" : ""} flag`}</button>
         </div>
       </div>
-      {memosFlagsList
-        .filter((flag) =>
-          flag.term.toLowerCase().includes(flagObject.term.toLowerCase())
-        )
-        .map((flag) => (
-          <Flag
-            key={flag.id}
-            flag={flag}
-            onEdit={() => catchFlagDatas(flag)}
-            onDelete={() => confirmFlagDelete(flag)}
-          />
-        ))}
+      <div className="listingDatas">
+        <div className="wrapperListing">
+          {memosFlagsList
+            .filter((flag) =>
+              flag.term.toLowerCase().includes(flagObject.term.toLowerCase())
+            )
+            .map((flag) => (
+              <Flag
+                key={flag.id}
+                flag={flag}
+                onEdit={() => catchFlagDatas(flag)}
+                onDelete={() => confirmFlagDelete(flag)}
+              />
+            ))}
+        </div>
+      </div>
     </div>
   );
 }

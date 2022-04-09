@@ -1,6 +1,6 @@
 import "../../assets/styles/Memos.css";
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import axios from "axios";
 // import Header from "./Header";
 import MainForm from "./MainForm";
@@ -12,22 +12,22 @@ import AdminReasons from "./MemosAdmin/AdminReasons";
 
 export default function Memos() {
   return (
-    <div id="notes" className="board">
-        <Router>
-          <Routes>
-            {/* PROD
-            <Route path='/memo-admin' element={<MainForm />} />
+    <div id="memos" className="board">
+      <Router>
+        <Routes>
+          {/* PROD
+            <Route path='/memos-admin' element={<MainForm />} />
             <Route path='/' element={<AdminDatas />} />
             */}
-            <Route path='/memo-admin' element={<MainForm />} />
-            <Route path='/' element={<AdminDatas />}>
-              <Route path='/' element={<AdminMenus />} />
-              <Route path='/admin-characters' element={<AdminChars />} />
-              <Route path='/admin-flags' element={<AdminFlags />} />
-              <Route path='/admin-reasons' element={<AdminReasons />} />
-            </Route>
-          </Routes>
-        </Router>
+          <Route path="/memos-admin" element={<MainForm />} />
+          <Route path="/" element={<AdminDatas />}>
+            <Route path="/" element={<AdminMenus />} />
+            <Route path="/admin-characters" element={<AdminChars />} />
+            <Route path="/admin-flags" element={<AdminFlags />} />
+            <Route path="/admin-reasons" element={<AdminReasons />} />
+          </Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
