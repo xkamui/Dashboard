@@ -1,12 +1,33 @@
 import "../../assets/styles/Memos.css";
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import axios from "axios";
-import Header from "./Header";
+// import Header from "./Header";
+import MainForm from "./MainForm";
+import AdminDatas from "./MemosAdmin/";
+import AdminChars from "./MemosAdmin/AdminChars";
+import AdminMenus from "./MemosAdmin/AdminMenus";
+import AdminFlags from "./MemosAdmin/AdminFlags";
+import AdminReasons from "./MemosAdmin/AdminReasons";
 
 export default function Memos() {
   return (
     <div id="notes" className="board">
-      <Header />
+        <Router>
+          <Routes>
+            {/* PROD
+            <Route path='/memo-admin' element={<MainForm />} />
+            <Route path='/' element={<AdminDatas />} />
+            */}
+            <Route path='/memo-admin' element={<MainForm />} />
+            <Route path='/' element={<AdminDatas />}>
+              <Route path='/' element={<AdminMenus />} />
+              <Route path='/admin-characters' element={<AdminChars />} />
+              <Route path='/admin-flags' element={<AdminFlags />} />
+              <Route path='/admin-reasons' element={<AdminReasons />} />
+            </Route>
+          </Routes>
+        </Router>
     </div>
   );
 }
