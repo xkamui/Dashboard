@@ -67,6 +67,10 @@ select {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 :root {
   --counter-as-color: #9cc062;
   --counter-us-color: #349db4;
@@ -74,10 +78,15 @@ select {
   --counter-ud-color: #dbbe5e;
   --counter-ad-color: #a11f1d;
 
+  --white-text-color: #ffffff;
+  --main-green-color: #00ce9b;
+  --main-black-bgcol: #25292f;
+  --contrast-gray-color: #7a828b;
+  --dark-red-color: #d9534f;
+
+  --light-gray-color: #f7f7f7;
   --black-main-color: #292b2c;
   --dark-gray-color: #999999;
-  --light-gray-color: #f7f7f7;
-  --dark-red-color: #d9534f;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
