@@ -285,7 +285,11 @@
 #count .wrapper .logs .wrapper .log {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  text-align: left;
   padding: 3px 10px;
+  border: none;
+  background: none;
 }
 
 #count .wrapper .logs .wrapper .log span.timestamp {
@@ -301,4 +305,8 @@
   font-size: 12px;
   color: var(--black-main-color);
   text-transform: capitalize;
+}
+
+#count .wrapper .logs .wrapper .log span.charname .smallText {
+  text-transform: none;
 }

@@ -1,10 +1,20 @@
-export default function Logs({ props }) {
+export default function Logs(props) {
+  function handleSelect(usr) {
+    props.onClick(usr);
+  }
+
   return (
-    <div className="log">
-      <span className="timestamp">{props.last_stamp}</span>
+    <button className="log" onClick={() => handleSelect(props.user.charname)}>
+      <span className="timestamp">{props.user.last_stamp}</span>
       <span className="charname">
-        {props.charname} ({props.counter} - {props.last_status})
+        {props.user.charname} ({props.user.counter} -{" "}
+        {props.user.last_status === "" ? (
+          <span className="smallText">n/a</span>
+        ) : (
+          props.user.last_status
+        )}
+        )
       </span>
-    </div>
+    </button>
   );
 }
