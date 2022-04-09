@@ -1,17 +1,17 @@
-export default function SearchResult({ props }) {
+export default function SearchResult(props) {
+  function handleSelect(usr) {
+    props.onClick(usr);
+  }
 
-    function handleSelect(user){
-        console.log('prout', user);
-        props.setSearchValue = user;
-        props.setSearchActive = false;
-    }
-
-    return (
-    <div className="userButton">
-      <button onClick={() => handleSelect(props.user.charname)}>
-        {props.user.charname} (
-        {props.user.last_status === "" ? "n/a" : props.user.last_status})
-      </button>
-    </div>
+  return (
+    <button onClick={() => handleSelect(props.user.charname)}>
+      {props.user.charname} (
+      {props.user.last_status === "" ? (
+        <span className="smallText">n/a</span>
+      ) : (
+        props.user.last_status
+      )}
+      )
+    </button>
   );
 }
