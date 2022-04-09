@@ -3,13 +3,16 @@ import axios from "axios";
 import CounterChartContext from "../../contexts/CounterChartContext";
 
 export default function ChartBar({ props }) {
-  const { setChartValues } = useContext(CounterChartContext);
+  const { setChartValues, selectedButton, setSelectedButton, setSearchValue } =
+    useContext(CounterChartContext);
 
-  const urlAPI =
-    "https://www.sir-keichi.com/SK1-api/index.php/count/inc?inc=1&key=";
-  const incrementChartValues = (key) => {
-    axios.get(urlAPI + key).then((res) => {
+  const urlAPI = "https://www.sir-keichi.com/SK1-api/index.php/count/inc";
+  const incrementChartValues = async (inc, key) => {
+    await axios.get(urlAPI, { params: { inc: inc, key: key } }).then((res) => {
+      console.log(inc);
       setChartValues(res.data);
+      setSelectedButton(null);
+      setSearchValue("");
     });
   };
 
@@ -26,9 +29,12 @@ export default function ChartBar({ props }) {
       </div>
       <div className="btn">
         <button
-          className="addCounter"
-          onClick={() => incrementChartValues(props.key)}
-          data-insert="1"
+          className={`addCounter ${
+            selectedButton?.key === props.key ? "clickMe" : ""
+          }`}
+          onClick={() =>
+            incrementChartValues(selectedButton?.inc ?? 1, props.key)
+          }
         >
           {props.key}
         </button>

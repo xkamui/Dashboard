@@ -12,24 +12,35 @@ export default function Counter() {
   const urlCountAllAPI =
     "https://www.sir-keichi.com/SK1-api/index.php/count/all";
   const [chartValues, setChartValues] = React.useState([]);
+  const getChartValues = async () => {
+    await axios.get(urlCountAllAPI).then((res) => {
+      setChartValues(res.data);
+    });
+  };
 
   const urlUsersAllAPI =
     "https://www.sir-keichi.com/SK1-api/index.php/count/allusers";
   const [listUsers, setListUsers] = React.useState([]);
-
-  function getChartValues() {
-    axios.get(urlCountAllAPI).then((res) => {
-      setChartValues(res.data);
-    });
-  }
-
-  function getListUsers() {
-    axios.get(urlUsersAllAPI).then((res) => {
+  const getListUsers = async () => {
+    await axios.get(urlUsersAllAPI).then((res) => {
       setListUsers(res.data);
     });
-  }
+  };
+
+  const urlAPI =
+    "https://www.sir-keichi.com/SK1-api/index.php/user/logs?limit=30";
+  const [logValues, setLogValues] = React.useState([]);
+  const getLogValues = async () => {
+    await axios.get(urlAPI).then((res) => {
+      setLogValues(res.data);
+    });
+  };
+
+  const [searchValue, setSearchValue] = React.useState("");
+  const [selectedButton, setSelectedButton] = React.useState([]);
 
   React.useEffect(() => {
+    getLogValues();
     getChartValues();
     getListUsers();
   }, []);
@@ -40,6 +51,13 @@ export default function Counter() {
         chartValues: chartValues,
         setChartValues: setChartValues,
         getChartValues: getChartValues,
+        searchValue: searchValue,
+        setSearchValue: setSearchValue,
+        selectedButton: selectedButton,
+        setSelectedButton: setSelectedButton,
+        logValues: logValues,
+        setLogValues: setLogValues,
+        getLogValues: getLogValues,
       }}
     >
       <div id="count" className="board">

@@ -1,32 +1,36 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import CounterUsersContext from "../../contexts/CounterUsersContext";
+import CounterChartContext from "../../contexts/CounterChartContext";
 import SearchResult from "./SearchResult";
 
 export default function SearchBar() {
   const { listUsers, setListUsers } = useContext(CounterUsersContext);
-  const [searchValue, setSearchValue] = React.useState("");
+  const { setSelectedButton, getLogValues, searchValue, setSearchValue } =
+    useContext(CounterChartContext);
   const [searchActive, setSearchActive] = React.useState(false);
 
   const urlAPI =
     "https://www.sir-keichi.com/SK1-api/index.php/count/fetch?user=";
   const fetchUserInfos = async () => {
     await axios.get(urlAPI + searchValue).then((res) => {
-      setSearchValue(`${searchValue} ${res.data.char.str}`);
+      setSearchValue(`${searchValue} ${res.data.char.datas.str}`);
       setListUsers(res.data.allchars);
+      setSelectedButton(res.data.char.datas);
+      getLogValues();
     });
   };
 
   // Update elements while searching
-  function handleSearch(str) {
+  const handleSearch = (str) => {
     setSearchValue(str);
     setSearchActive(true);
-  }
+  };
 
   // Complete search field with clicked element
-  function handleSelect(user) {
+  const handleSelect = (user) => {
     setSearchValue(user);
-  }
+  };
 
   return (
     <div className="search">
