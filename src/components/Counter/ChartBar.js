@@ -9,7 +9,6 @@ export default function ChartBar({ props }) {
   const urlAPI = "https://www.sir-keichi.com/SK1-api/index.php/count/inc";
   const incrementChartValues = async (inc, key) => {
     await axios.get(urlAPI, { params: { inc: inc, key: key } }).then((res) => {
-      console.log(inc);
       setChartValues(res.data);
       setSelectedButton(null);
       setSearchValue("");

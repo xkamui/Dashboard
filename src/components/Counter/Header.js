@@ -2,11 +2,10 @@ import React, { useContext } from "react";
 import CounterChartContext from "../../contexts/CounterChartContext";
 
 export default function Header() {
-  const { chartValues } = useContext(CounterChartContext);
+  const { chartValues, confirmReset } = useContext(CounterChartContext);
 
   const currCounter = chartValues.reduce((acc, val) => acc + val.count, 0);
-  const fullCounter =
-    chartValues.reduce((acc, val) => acc + val.fulls, 0) + currCounter;
+  const fullCounter = chartValues.reduce((acc, val) => acc + val.fulls, 0);
 
   return (
     <div className="board-header">
@@ -20,7 +19,9 @@ export default function Header() {
         </h3>
       </div>
       <div className="reset">
-        <button className="reset-counter">Reset</button>
+        <button className="reset-counter" onClick={() => confirmReset()}>
+          Reset
+        </button>
       </div>
     </div>
   );

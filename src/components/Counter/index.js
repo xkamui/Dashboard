@@ -27,17 +27,26 @@ export default function Counter() {
     });
   };
 
-  const urlAPI =
-    "https://www.sir-keichi.com/SK1-api/index.php/user/logs?limit=30";
+  const urlLogsAPI =
+    "https://www.sir-keichi.com/SK1-api/index.php/count/logs?limit=30";
   const [logValues, setLogValues] = React.useState([]);
   const getLogValues = async () => {
-    await axios.get(urlAPI).then((res) => {
+    await axios.get(urlLogsAPI).then((res) => {
       setLogValues(res.data);
     });
   };
 
   const [searchValue, setSearchValue] = React.useState("");
   const [selectedButton, setSelectedButton] = React.useState([]);
+
+  const urlResetAPI = "https://www.sir-keichi.com/SK1-api/index.php/count/raz";
+  const confirmReset = async () => {
+    if (window.confirm(`Do you really want to reset current datas?`)) {
+      await axios.get(urlResetAPI).then((res) => {
+        getChartValues();
+      });
+    }
+  };
 
   React.useEffect(() => {
     getLogValues();
@@ -58,6 +67,7 @@ export default function Counter() {
         logValues: logValues,
         setLogValues: setLogValues,
         getLogValues: getLogValues,
+        confirmReset: confirmReset,
       }}
     >
       <div id="count" className="board">
