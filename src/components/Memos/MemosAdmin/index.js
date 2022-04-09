@@ -1,11 +1,16 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function AdminDatas() {
-    return (
+  return (
+    <section id="memos-panel">
       <div className="board-header">
-          Admin panel
-          <NavLink to="/">home</NavLink>
-          <Outlet />
+        <NavLink to="/memos-admin">‹‹ Memos</NavLink>
+        <h3>MEMOS - ADMIN PANEL</h3>
+        <NavLink to="/">Home</NavLink>
       </div>
-    );
-  }
+      <div className="board-content">
+        <Outlet />
+      </div>
+    </section>
+  );
+}
