@@ -1,16 +1,14 @@
 import "../../assets/styles/Counter.css";
 import React from "react";
-// import axios from "axios";
-// import Chart from "./Chart";
-// import Header from "./Header";
-// import RecentLogs from "./RecentLogs";
-// import SearchBar from "./SearchBar";
-// import CounterChartContext from "../../contexts/CounterChartContext";
-// import CounterUsersContext from "../../contexts/CounterUsersContext";
+import axios from "axios";
+import Chart from "./Chart";
+import Header from "./Header";
+import RecentLogs from "./RecentLogs";
+import SearchBar from "./SearchBar";
+import CounterChartContext from "../../contexts/CounterChartContext";
+import CounterUsersContext from "../../contexts/CounterUsersContext";
 
 export default function Counter() {
-  return <></>;
-  /*
   const urlCountAllAPI =
     "https://www.sir-keichi.com/SK1-api/index.php/count/all";
   const [chartValues, setChartValues] = React.useState([]);
@@ -90,5 +88,4 @@ export default function Counter() {
       </div>
     </CounterChartContext.Provider>
   );
-  */
 }
