@@ -14,7 +14,9 @@ export default function SearchBar() {
     "https://www.sir-keichi.com/SK1-api/index.php/count/fetch?user=";
   const fetchUserInfos = async () => {
     await axios.get(urlAPI + searchValue).then((res) => {
-      setSearchValue(`${res.data.char.charDatas.name} ${res.data.char.datas.str}`);
+      setSearchValue(
+        `${res.data.char.charDatas.name} ${res.data.char.datas.str}`
+      );
       setListUsers(res.data.allchars);
       setSelectedButton(res.data.char.datas);
       getLogValues();
@@ -59,9 +61,7 @@ export default function SearchBar() {
       >
         {listUsers
           ?.filter((user) =>
-            user.charname
-              .toLowerCase()
-              .includes(searchValue.toLocaleLowerCase())
+            user.charname.toLowerCase().includes(searchValue.toLowerCase())
           )
           .map((user) => (
             <SearchResult
