@@ -6,8 +6,6 @@
 }
 
 /* Remove default padding */
-ul,
-ol,
 ul[class],
 ol[class] {
   padding: 0;
@@ -20,8 +18,6 @@ h2,
 h3,
 h4,
 p,
-ul,
-ol,
 ul[class],
 ol[class],
 li,
@@ -42,8 +38,6 @@ body {
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
-ul,
-ol,
 ul[class],
 ol[class] {
   list-style: none;
@@ -89,12 +83,6 @@ button {
   --main-black-bgcol: #25292f;
   --contrast-gray-color: #7a828b;
   --dark-red-color: #d9534f;
-
-  --admin-bootstrap-primary: #0275d8;
-  --admin-bootstrap-success: #5cb85c;
-  --admin-bootstrap-info: #5bc0de;
-  --admin-bootstrap-warning: #f0ad4e;
-  --admin-bootstrap-danger: #d9534f;
 
   --light-gray-color: #f7f7f7;
   --black-main-color: #292b2c;
