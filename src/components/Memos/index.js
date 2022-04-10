@@ -9,6 +9,7 @@ import AdminChars from "./MemosAdmin/AdminChars";
 import AdminMenus from "./MemosAdmin/AdminMenus";
 import AdminFlags from "./MemosAdmin/AdminFlags";
 import AdminReasons from "./MemosAdmin/AdminReasons";
+import AdminAccounts from "./MemosAdmin/AdminAccounts";
 
 export default function Memos() {
   return (
@@ -22,6 +23,7 @@ export default function Memos() {
           <Route path="/memos-admin" element={<MainForm />} />
           <Route path="/" element={<AdminDatas />}>
             <Route path="/" element={<AdminMenus />} />
+            <Route path="/admin-accounts" element={<AdminAccounts />} />
             <Route path="/admin-characters" element={<AdminChars />} />
             <Route path="/admin-flags" element={<AdminFlags />} />
             <Route path="/admin-reasons" element={<AdminReasons />} />

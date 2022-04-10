@@ -19,7 +19,7 @@ export default function Char(props) {
           />
           <figcaption>
             {props.char.charname}
-            <span>{props.char.account}</span>
+            <span>{props.char.account_name}</span>
           </figcaption>
         </figure>
       </div>

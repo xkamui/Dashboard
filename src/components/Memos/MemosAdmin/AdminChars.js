@@ -6,7 +6,8 @@ export default function AdminChars() {
   const emptyChar = {
     id: null,
     charname: "",
-    account: "",
+    account_id: 0,
+    account_name: "",
     active: 0,
   };
 
@@ -44,7 +45,7 @@ export default function AdminChars() {
         params: {
           id: charObject.id,
           active: charObject.active,
-          account: charObject.account,
+          account_id: charObject.account_id,
           charname: charObject.charname,
         },
       })
@@ -58,7 +59,7 @@ export default function AdminChars() {
   const catchCharDatas = (char) => {
     setCharObject({
       active: char.active,
-      account: char.account,
+      account_id: char.account_id,
       charname: char.charname,
       id: char.id,
     });
@@ -82,7 +83,10 @@ export default function AdminChars() {
   const handleSearch = (str, src) => {
     switch (src) {
       case "account":
-        setCharObject({ ...charObject, account: str });
+        setCharObject({
+          ...charObject,
+          account_id: str !== "" ? parseInt(str) : 0,
+        });
         break;
       case "charname":
         setCharObject(
@@ -137,12 +141,12 @@ export default function AdminChars() {
         <div className="formRow">
           <select
             name="newCharAccount"
-            value={charObject.account}
+            value={charObject.account_id}
             onChange={(e) => handleSearch(e.target.value, "account")}
           >
             <option></option>
             {memosAccountsList.map((account) => (
-              <option key={account.id} value={account.account}>
+              <option key={account.id} value={account.id}>
                 {account.account}
               </option>
             ))}
@@ -162,14 +166,14 @@ export default function AdminChars() {
             : memosCharsList
           )
             .filter((char) =>
+              charObject.account_id === 0
+                ? 1 === 1
+                : char.account_id === charObject.account_id
+            )
+            .filter((char) =>
               char.charname
                 .toLowerCase()
                 .includes(charObject.charname.toLowerCase())
-            )
-            .filter((char) =>
-              char.account
-                .toLowerCase()
-                .includes(charObject.account.toLowerCase())
             )
             .map((char) => (
               <Char
