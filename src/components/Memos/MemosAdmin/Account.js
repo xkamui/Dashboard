@@ -8,10 +8,10 @@ export default function Account(props) {
   }
 
   return (
-    <div className="account">
-      <div className="accountName" onClick={() => handleEdit(props.account)}>
+    <div className="item">
+      <div className="item-name" onClick={() => handleEdit(props.account)}>
         {props.account.account}
-        <span> ({props.account.chars} chars)</span>
+        <span class="item-infos"> ({props.account.chars} chars)</span>
       </div>
       <div className="actions">
         <ul>

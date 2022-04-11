@@ -8,8 +8,8 @@ export default function Reason(props) {
   }
 
   return (
-    <div className="reason">
-      <div className="reasonTerm" onClick={() => handleEdit(props.reason)}>
+    <div className="item">
+      <div className="item-name" onClick={() => handleEdit(props.reason)}>
         {props.reason.term}
       </div>
       <div className="actions">

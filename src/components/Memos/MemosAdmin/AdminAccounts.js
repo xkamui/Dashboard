@@ -67,15 +67,15 @@ export default function AdminAccounts() {
   };
 
   return (
-    <div className="wrapperAdmin">
-      <div className="newAccountForm">
+    <div className="board-content">
+      <div className="board-zone memos-admin-form">
         <div className="formRow">
           <label htmlFor="newAccountName">
             Filter or create a new account:{" "}
           </label>
           <input
             type="search"
-            name="newAccount"
+            name="newAccountName"
             required
             value={accountObject.account}
             onChange={(e) => handleSearch(e.target.value)}
@@ -83,15 +83,15 @@ export default function AdminAccounts() {
         </div>
         <div className="formRow">
           <button
-            className="saveAccountButton"
+            className="saveButton"
             onClick={() => saveNewAccount()}
           >{`Save ${
             accountObject.id === null ? "as new" : ""
           } account`}</button>
         </div>
       </div>
-      <div className="listingDatas">
-        <div className="wrapperListing">
+      <div className="board-zone scroll memos-admin-list">
+        <div className="wrapper">
           {memosAccountsList
             .filter((account) =>
               account.account

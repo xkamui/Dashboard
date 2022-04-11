@@ -110,8 +110,8 @@ export default function AdminChars() {
   };
 
   return (
-    <div className="wrapperAdmin">
-      <div className="newCharForm">
+    <div className="board-content">
+      <div className="board-zone memos-admin-form">
         <div className="formRow">
           <label htmlFor="newCharName">Filter or create a new character:</label>
           <input
@@ -153,14 +153,13 @@ export default function AdminChars() {
           </select>
         </div>
         <div className="formRow">
-          <button
-            className="saveCharButton"
-            onClick={() => saveNewChar()}
-          >{`Save ${charObject.id === null ? "as new" : ""} character`}</button>
+          <button className="saveButton" onClick={() => saveNewChar()}>{`Save ${
+            charObject.id === null ? "as new" : ""
+          } character`}</button>
         </div>
       </div>
-      <div className="listingDatas">
-        <div className="wrapperListing">
+      <div className="board-zone scroll memos-admin-list">
+        <div className="wrapper">
           {(charActiveFilter !== null
             ? memosCharsList.filter((char) => char.active === charActiveFilter)
             : memosCharsList

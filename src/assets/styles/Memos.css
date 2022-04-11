@@ -1,36 +1,33 @@
 #memos {
-  grid-area: 1 / 2 / 2 / 3;
   background: url(../images/template/bg-notes.webp);
-}
-
-#memos-panel {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-#memos-panel .board-content {
-  flex-grow: 1;
 }
 
 /* ************************************************************************************************
 /* *** HEADER *************************************************************************************
 /* ***********************************************************************************************/
-#memos-panel .board-header {
+#memos .memos-header {
+  width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  text-align: center;
 }
 
-#memos-panel .board-header h3 {
+#memos .memos-header h3 {
   font-family: "OpenSans-Bold";
   font-size: 16px;
   color: var(--white-text-color);
   line-height: 1rem;
 }
 
-#memos-panel .board-header a {
+#memos .memos-header .back,
+#memos .memos-header .home {
+  width: 75px;
+  align-self: center;
+}
+
+#memos .memos-header a {
   font-family: "OpenSans-Light";
   font-size: 12px;
   color: var(--main-green-color);
@@ -38,49 +35,66 @@
 }
 
 /* ************************************************************************************************
-/* *** ADMIN **************************************************************************************
+/* *** ADMIN - FRONT-MENU *************************************************************************
 /* ***********************************************************************************************/
-#memos .wrapperAdmin {
+#memos .board-content .memos-admin-menu {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100%;
 }
 
-#memos .wrapperAdmin .listingDatas {
-  flex-grow: 1;
-  padding: 15px;
-  max-height: 55%;
-  overflow: hidden;
-  overflow-y: auto;
-}
-#memos .wrapperAdmin .listingDatas .wrapperListing {
+#memos .board-content .memos-admin-menu ul {
   width: 100%;
+}
+
+#memos .board-content .memos-admin-menu ul li {
+  padding: 15px;
+}
+
+#memos .board-content .memos-admin-menu ul li a {
+  display: block;
+  width: 100%;
+  font-family: "OpenSans-Bold";
+  font-size: 16px;
+}
+
+#memos .board-content .memos-admin-menu ul li a button {
+  width: 100%;
+  color: var(--contrast-gray-color);
+  border: none;
+  outline: none;
+  background: none;
+}
+
+#memos .board-content .memos-admin-menu ul li a button:hover {
+  color: var(--white-text-color);
 }
 
 /* ************************************************************************************************
-/* *** ADMIN - FLAGS ******************************************************************************
+/* *** ADMIN - TOP-FORM ***************************************************************************
 /* ***********************************************************************************************/
-#memos .wrapperAdmin .newFlagForm .formRow {
-  position: relative;
+#memos .board-content .memos-admin-form .formRow {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: stretch;
-  width: 300px;
-  padding: 5px 0 0 0;
+  width: 100%;
+  max-width: 450px;
+  padding: 5px 15px;
   margin: 0 auto;
 }
 
-#memos .wrapperAdmin .newFlagForm .formRow label {
+#memos .board-content .memos-admin-form .formRow label {
   width: 100%;
   font-family: "OpenSans";
   font-size: 12px;
   color: var(--white-text-color);
 }
 
-#memos .wrapperAdmin .newFlagForm .formRow input[type="search"] {
+#memos .board-content .memos-admin-form .formRow input[type="search"] {
   font-family: "OpenSans";
   font-size: 12px;
   color: var(--main-green-color);
@@ -94,7 +108,7 @@
   flex: 1;
 }
 
-#memos .wrapperAdmin .newFlagForm .formRow button.badGood {
+#memos .board-content .memos-admin-form .formRow button.badGood {
   font-family: "OpenSans";
   font-size: 12px;
   color: var(--white-text-color);
@@ -106,22 +120,63 @@
   opacity: 0.5;
 }
 
-#memos .wrapperAdmin .newFlagForm .formRow button.badGood.active {
+#memos .board-content .memos-admin-form .formRow button.badGood.active {
   opacity: 1;
 }
 
-#memos .wrapperAdmin .newFlagForm .formRow button.badGood.bad {
+#memos .board-content .memos-admin-form .formRow button.badGood.bad {
   border-left: none;
   border-right: none;
   background: var(--admin-bootstrap-danger);
 }
 
-#memos .wrapperAdmin .newFlagForm .formRow button.badGood.good {
+#memos .board-content .memos-admin-form .formRow button.badGood.good {
   border-left: none;
   background: var(--admin-bootstrap-success);
 }
 
-#memos .wrapperAdmin .newFlagForm .formRow button.saveFlagButton {
+#memos .board-content .memos-admin-form .formRow button.activeInactive {
+  font-family: "OpenSans";
+  font-size: 12px;
+  color: var(--white-text-color);
+  font-weight: 600;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  opacity: 0.5;
+}
+
+#memos .board-content .memos-admin-form .formRow button.activeInactive.active {
+  opacity: 1;
+}
+
+#memos .board-content .memos-admin-form .formRow button.activeInactive.false {
+  border-left: none;
+  border-right: none;
+  background: var(--admin-bootstrap-danger);
+}
+
+#memos .board-content .memos-admin-form .formRow button.activeInactive.true {
+  border-left: none;
+  background: var(--admin-bootstrap-success);
+}
+
+#memos .board-content .memos-admin-form .formRow select {
+  font-family: "OpenSans";
+  font-size: 12px;
+  color: var(--main-green-color);
+  text-transform: capitalize;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid var(--main-green-color);
+  background-color: var(--main-black-bgcol);
+  outline: none;
+  margin-right: 5px;
+  flex: 1;
+}
+
+#memos .board-content .memos-admin-form .formRow button.saveButton {
   font-family: "OpenSans";
   font-size: 12px;
   color: var(--main-green-color);
@@ -132,288 +187,114 @@
   background: var(--main-black-bgcol);
 }
 
-#memos .wrapperAdmin .listingDatas .flag {
+/* ************************************************************************************************
+/* *** ADMIN - ITEM LIST **************************************************************************
+/* ***********************************************************************************************/
+#memos .board-content .memos-admin-list .wrapper {
+  width: 100%;
+}
+
+#memos .board-content .memos-admin-list .wrapper .item {
   display: flex;
   padding: 10px 0;
   border-bottom: 1px solid var(--contrast-gray-color);
 }
 
-#memos .wrapperAdmin .listingDatas .flag span {
+#memos .board-content .memos-admin-list .wrapper .item span.item-infos {
+  font-size: 12px;
+  font-style: italic;
+}
+
+#memos .board-content .memos-admin-list .wrapper .item span.item-dots {
   display: inline-block;
   width: 12px;
   height: 12px;
   border-radius: 4px;
 }
 
-#memos .wrapperAdmin .listingDatas .flag.bad span {
+#memos .board-content .memos-admin-list .wrapper .item.bad span {
   background: var(--admin-bootstrap-danger);
 }
 
-#memos .wrapperAdmin .listingDatas .flag.good span {
+#memos .board-content .memos-admin-list .wrapper .item.good span {
   background: var(--admin-bootstrap-success);
 }
 
-#memos .wrapperAdmin .listingDatas .flag .flagTerm {
+#memos .board-content .memos-admin-list .wrapper .item .item-name {
   flex-grow: 1;
   font-size: 16px;
   color: var(--white-text-color);
   padding: 0 5px;
 }
 
-#memos .wrapperAdmin .listingDatas .flag .actions ul {
-  display: flex;
-}
-
-#memos .wrapperAdmin .listingDatas .flag .actions ul li {
-  padding: 0 5px;
-}
-
-#memos .wrapperAdmin .listingDatas .flag .actions ul li button {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--white-text-color);
-  text-transform: uppercase;
-  padding: 0 5px;
-  margin: 0;
-  border: none;
-  border-radius: 4px;
-}
-
-#memos .wrapperAdmin .listingDatas .flag .actions ul li button.edtButton {
-  background: var(--admin-bootstrap-info);
-}
-
-#memos .wrapperAdmin .listingDatas .flag .actions ul li button.delButton {
-  background: var(--admin-bootstrap-danger);
-}
-
-/* ************************************************************************************************
-/* *** ADMIN - REASONS ****************************************************************************
-/* ***********************************************************************************************/
-#memos .wrapperAdmin .newReasonForm .formRow {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: stretch;
-  width: 300px;
-  padding: 5px 0 0 0;
-  margin: 0 auto;
-}
-
-#memos .wrapperAdmin .newReasonForm .formRow label {
-  width: 100%;
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--white-text-color);
-}
-
-#memos .wrapperAdmin .newReasonForm .formRow input[type="search"] {
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--main-green-color);
-  text-transform: capitalize;
-  padding: 5px;
-  border-radius: 3px;
-  border: 1px solid var(--main-green-color);
-  background-color: var(--main-black-bgcol);
-  outline: none;
-  margin-right: 5px;
-  flex: 1;
-}
-
-#memos .wrapperAdmin .newReasonForm .formRow button.saveReasonButton {
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--main-green-color);
-  font-weight: 600;
-  border-radius: 3px;
-  border: 1px solid var(--main-green-color);
-  outline: none;
-  background: var(--main-black-bgcol);
-}
-
-#memos .wrapperAdmin .listingDatas .reason {
-  display: flex;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--contrast-gray-color);
-}
-
-#memos .wrapperAdmin .listingDatas .reason .reasonTerm {
-  flex-grow: 1;
-  font-size: 16px;
-  color: var(--white-text-color);
-  padding: 0 5px;
-}
-
-#memos .wrapperAdmin .listingDatas .reason .actions ul {
-  display: flex;
-}
-
-#memos .wrapperAdmin .listingDatas .reason .actions ul li {
-  padding: 0 5px;
-}
-
-#memos .wrapperAdmin .listingDatas .reason .actions ul li button {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--white-text-color);
-  text-transform: uppercase;
-  padding: 0 5px;
-  margin: 0;
-  border: none;
-  border-radius: 4px;
-}
-
-#memos .wrapperAdmin .listingDatas .reason .actions ul li button.edtButton {
-  background: var(--admin-bootstrap-info);
-}
-
-#memos .wrapperAdmin .listingDatas .reason .actions ul li button.delButton {
-  background: var(--admin-bootstrap-danger);
-}
-
-/* ************************************************************************************************
-/* *** ADMIN - CHARACTERS *************************************************************************
-/* ***********************************************************************************************/
-#memos .wrapperAdmin .newCharForm .formRow {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: stretch;
-  width: 300px;
-  padding: 5px 0 0 0;
-  margin: 0 auto;
-}
-
-#memos .wrapperAdmin .newCharForm .formRow label {
-  width: 100%;
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--white-text-color);
-}
-
-#memos .wrapperAdmin .newCharForm .formRow input[type="search"] {
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--main-green-color);
-  text-transform: capitalize;
-  padding: 5px;
-  border-radius: 3px;
-  border: 1px solid var(--main-green-color);
-  background-color: var(--main-black-bgcol);
-  outline: none;
-  margin-right: 5px;
-  flex: 1;
-}
-
-#memos .wrapperAdmin .newCharForm .formRow button.activeInactive {
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--white-text-color);
-  font-weight: 600;
-  border-radius: 3px;
-  border: none;
-  outline: none;
-  margin-left: 5px;
-  opacity: 0.5;
-}
-
-#memos .wrapperAdmin .newCharForm .formRow button.activeInactive.active {
-  opacity: 1;
-}
-
-#memos .wrapperAdmin .newCharForm .formRow button.activeInactive.false {
-  border-left: none;
-  border-right: none;
-  background: var(--admin-bootstrap-danger);
-}
-
-#memos .wrapperAdmin .newCharForm .formRow button.activeInactive.true {
-  border-left: none;
-  background: var(--admin-bootstrap-success);
-}
-
-#memos .wrapperAdmin .newCharForm .formRow select {
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--main-green-color);
-  text-transform: capitalize;
-  padding: 5px;
-  border-radius: 3px;
-  border: 1px solid var(--main-green-color);
-  background-color: var(--main-black-bgcol);
-  outline: none;
-  margin-right: 5px;
-  flex: 1;
-}
-
-#memos .wrapperAdmin .newCharForm .formRow button.saveCharButton {
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--main-green-color);
-  font-weight: 600;
-  border-radius: 3px;
-  border: 1px solid var(--main-green-color);
-  outline: none;
-  background: var(--main-black-bgcol);
-}
-
-#memos .wrapperAdmin .listingDatas .char {
-  display: flex;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--contrast-gray-color);
-}
-
-#memos .wrapperAdmin .listingDatas .char .charName {
-  flex-grow: 1;
-  font-size: 16px;
-  color: var(--white-text-color);
-  padding: 0 5px;
-}
-
-#memos .wrapperAdmin .listingDatas .char .charName figure {
+#memos .board-content .memos-admin-list .wrapper .item .item-name figure {
   display: flex;
   width: 100%;
 }
 
-#memos .wrapperAdmin .listingDatas .char .charName figure img {
+#memos .board-content .memos-admin-list .wrapper .item .item-name figure img {
   width: 48px;
   height: 48px;
   border-radius: 48px;
 }
 
-#memos .wrapperAdmin .listingDatas .char .charName figure img.active {
+#memos
+  .board-content
+  .memos-admin-list
+  .wrapper
+  .item
+  .item-name
+  figure
+  img.active {
   border: 2px solid var(--main-green-color);
 }
 
-#memos .wrapperAdmin .listingDatas .char .charName figure img.inactive {
+#memos
+  .board-content
+  .memos-admin-list
+  .wrapper
+  .item
+  .item-name
+  figure
+  img.inactive {
   border: 2px solid var(--admin-bootstrap-danger);
 }
 
-#memos .wrapperAdmin .listingDatas .char .charName figure figcaption {
+#memos
+  .board-content
+  .memos-admin-list
+  .wrapper
+  .item
+  .item-name
+  figure
+  figcaption {
   font-size: 16px;
   padding: 0 10px;
 }
 
-#memos .wrapperAdmin .listingDatas .char .charName figure figcaption span {
+#memos
+  .board-content
+  .memos-admin-list
+  .wrapper
+  .item
+  .item-name
+  figure
+  figcaption
+  span {
   display: block;
   font-size: 12px;
   font-style: italic;
 }
 
-#memos .wrapperAdmin .listingDatas .char .actions ul {
+#memos .board-content .memos-admin-list .wrapper .item .actions ul {
   display: flex;
 }
 
-#memos .wrapperAdmin .listingDatas .char .actions ul li {
+#memos .board-content .memos-admin-list .wrapper .item .actions ul li {
   padding: 0 5px;
 }
 
-#memos .wrapperAdmin .listingDatas .char .actions ul li button {
+#memos .board-content .memos-admin-list .wrapper .item .actions ul li button {
   font-size: 12px;
   font-weight: 600;
   color: var(--white-text-color);
@@ -424,102 +305,26 @@
   border-radius: 4px;
 }
 
-#memos .wrapperAdmin .listingDatas .char .actions ul li button.edtButton {
+#memos
+  .board-content
+  .memos-admin-list
+  .wrapper
+  .item
+  .actions
+  ul
+  li
+  button.edtButton {
   background: var(--admin-bootstrap-info);
 }
 
-#memos .wrapperAdmin .listingDatas .char .actions ul li button.delButton {
-  background: var(--admin-bootstrap-danger);
-}
-
-/* ************************************************************************************************
-/* *** ADMIN - ACCOUNTS ***************************************************************************
-/* ***********************************************************************************************/
-#memos .wrapperAdmin .newAccountForm .formRow {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: stretch;
-  width: 300px;
-  padding: 5px 0 0 0;
-  margin: 0 auto;
-}
-
-#memos .wrapperAdmin .newAccountForm .formRow label {
-  width: 100%;
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--white-text-color);
-}
-
-#memos .wrapperAdmin .newAccountForm .formRow input[type="search"] {
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--main-green-color);
-  text-transform: capitalize;
-  padding: 5px;
-  border-radius: 3px;
-  border: 1px solid var(--main-green-color);
-  background-color: var(--main-black-bgcol);
-  outline: none;
-  margin-right: 5px;
-  flex: 1;
-}
-
-#memos .wrapperAdmin .newAccountForm .formRow button.saveAccountButton {
-  font-family: "OpenSans";
-  font-size: 12px;
-  color: var(--main-green-color);
-  font-weight: 600;
-  border-radius: 3px;
-  border: 1px solid var(--main-green-color);
-  outline: none;
-  background: var(--main-black-bgcol);
-}
-
-#memos .wrapperAdmin .listingDatas .account {
-  display: flex;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--contrast-gray-color);
-}
-
-#memos .wrapperAdmin .listingDatas .account .accountName {
-  flex-grow: 1;
-  font-size: 16px;
-  color: var(--white-text-color);
-  padding: 0 5px;
-}
-
-#memos .wrapperAdmin .listingDatas .account .accountName span {
-  font-size: 12px;
-  font-style: italic;
-}
-
-#memos .wrapperAdmin .listingDatas .account .actions ul {
-  display: flex;
-}
-
-#memos .wrapperAdmin .listingDatas .account .actions ul li {
-  padding: 0 5px;
-}
-
-#memos .wrapperAdmin .listingDatas .account .actions ul li button {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--white-text-color);
-  text-transform: uppercase;
-  padding: 0 5px;
-  margin: 0;
-  border: none;
-  border-radius: 4px;
-}
-
-#memos .wrapperAdmin .listingDatas .account .actions ul li button.edtButton {
-  background: var(--admin-bootstrap-info);
-}
-
-#memos .wrapperAdmin .listingDatas .account .actions ul li button.delButton {
+#memos
+  .board-content
+  .memos-admin-list
+  .wrapper
+  .item
+  .actions
+  ul
+  li
+  button.delButton {
   background: var(--admin-bootstrap-danger);
 }

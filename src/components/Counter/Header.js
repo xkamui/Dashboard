@@ -8,7 +8,7 @@ export default function Header() {
   const fullCounter = chartValues.reduce((acc, val) => acc + val.fulls, 0);
 
   return (
-    <div className="board-header">
+    <div className="board-header counter-header">
       <div className="current">{currCounter}</div>
       <div className="title">
         <h3>

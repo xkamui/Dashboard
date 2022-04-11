@@ -13,23 +13,21 @@ import AdminAccounts from "./MemosAdmin/AdminAccounts";
 
 export default function Memos() {
   return (
-    <div id="memos" className="board">
-      <Router>
-        <Routes>
-          {/* PROD
-            <Route path='/memos-admin' element={<MainForm />} />
-            <Route path='/' element={<AdminDatas />} />
-            */}
-          <Route path="/memos-admin" element={<MainForm />} />
-          <Route path="/" element={<AdminDatas />}>
-            <Route path="/" element={<AdminMenus />} />
-            <Route path="/admin-accounts" element={<AdminAccounts />} />
-            <Route path="/admin-characters" element={<AdminChars />} />
-            <Route path="/admin-flags" element={<AdminFlags />} />
-            <Route path="/admin-reasons" element={<AdminReasons />} />
-          </Route>
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      <Routes>
+        {/* PROD
+          <Route path='/memos-admin' element={<MainForm />} />
+          <Route path='/' element={<AdminDatas />} />
+          */}
+        <Route path="/memos-admin" element={<MainForm />} />
+        <Route path="/" element={<AdminDatas />}>
+          <Route path="/" element={<AdminMenus />} />
+          <Route path="/admin-accounts" element={<AdminAccounts />} />
+          <Route path="/admin-characters" element={<AdminChars />} />
+          <Route path="/admin-flags" element={<AdminFlags />} />
+          <Route path="/admin-reasons" element={<AdminReasons />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }

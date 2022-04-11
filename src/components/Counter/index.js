@@ -1,16 +1,15 @@
 import "../../assets/styles/Counter.css";
 import React from "react";
-// import axios from "axios";
-// import Chart from "./Chart";
-// import Header from "./Header";
-// import RecentLogs from "./RecentLogs";
-// import SearchBar from "./SearchBar";
-// import CounterChartContext from "../../contexts/CounterChartContext";
-// import CounterUsersContext from "../../contexts/CounterUsersContext";
+import axios from "axios";
+import Chart from "./Chart";
+import Header from "./Header";
+import RecentLogs from "./RecentLogs";
+import SearchBar from "./SearchBar";
+import CounterChartContext from "../../contexts/CounterChartContext";
+import CounterUsersContext from "../../contexts/CounterUsersContext";
+import RecentLogsList from "./RecentLogsList";
 
 export default function Counter() {
-  return <></>;
-  /*
   const urlCountAllAPI =
     "https://www.sir-keichi.com/SK1-api/index.php/count/all";
   const [chartValues, setChartValues] = React.useState([]);
@@ -72,9 +71,9 @@ export default function Counter() {
         confirmReset: confirmReset,
       }}
     >
-      <div id="count" className="board">
+      <section id="counter">
         <Header />
-        <div className="wrapper">
+        <div className="board-content">
           <Chart />
           <CounterUsersContext.Provider
             value={{
@@ -85,10 +84,10 @@ export default function Counter() {
           >
             <SearchBar />
             <RecentLogs />
+            <RecentLogsList />
           </CounterUsersContext.Provider>
         </div>
-      </div>
+      </section>
     </CounterChartContext.Provider>
   );
-  */
 }

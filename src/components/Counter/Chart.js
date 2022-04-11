@@ -6,8 +6,8 @@ export default function Chart() {
   const { chartValues } = useContext(CounterChartContext);
 
   return (
-    <div className="chart">
-      <div className="datas">
+    <div className="board-zone counter-chart">
+      <div className="counter-datas">
         {chartValues.map((bar) => (
           <ChartBar props={bar} key={bar.key} />
         ))}

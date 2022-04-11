@@ -66,13 +66,13 @@ export default function AdminReasons() {
   };
 
   return (
-    <div className="wrapperAdmin">
-      <div className="newReasonForm">
+    <div className="board-content">
+      <div className="board-zone memos-admin-form">
         <div className="formRow">
           <label htmlFor="newReasonTerm">Filter or create a new reason: </label>
           <input
             type="search"
-            name="newReason"
+            name="newReasonTerm"
             required
             value={reasonObject.term}
             onChange={(e) => handleSearch(e.target.value)}
@@ -80,13 +80,13 @@ export default function AdminReasons() {
         </div>
         <div className="formRow">
           <button
-            className="saveReasonButton"
+            className="saveButton"
             onClick={() => saveNewReason()}
           >{`Save ${reasonObject.id === null ? "as new" : ""} reason`}</button>
         </div>
       </div>
-      <div className="listingDatas">
-        <div className="wrapperListing">
+      <div className="board-zone scroll memos-admin-list">
+        <div className="wrapper">
           {memosReasonsList
             .filter((reason) =>
               reason.term

@@ -8,8 +8,8 @@ export default function Char(props) {
   }
 
   return (
-    <div className="char">
-      <div className="charName" onClick={() => handleEdit(props.char)}>
+    <div className="item">
+      <div className="item-name" onClick={() => handleEdit(props.char)}>
         <figure>
           <img
             src={`https://static.f-list.net/images/avatar/${props.char.charname.toLowerCase()}.png`}
@@ -19,7 +19,7 @@ export default function Char(props) {
           />
           <figcaption>
             {props.char.charname}
-            <span>{props.char.account_name}</span>
+            <span className="item-infos">{props.char.account_name}</span>
           </figcaption>
         </figure>
       </div>
