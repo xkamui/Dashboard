@@ -1,21 +1,19 @@
-#count {
-  grid-area: 1 / 1 / 2 / 2;
+#counter {
   background: url(../images/template/bg-notes.webp);
 }
 
 /* ************************************************************************************************
 /* *** HEADER *************************************************************************************
 /* ***********************************************************************************************/
-#count .board-header {
+#counter .counter-header {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
-  padding: 10px 0;
 }
 
-#count .board-header .current {
+#counter .board-header .current {
   width: 75px;
   align-self: center;
   font-family: "OpenSans-Light";
@@ -23,14 +21,14 @@
   color: var(--white-text-color);
 }
 
-#count .board-header .title h3 {
+#counter .board-header .title h3 {
   font-family: "OpenSans-Bold";
   font-size: 16px;
   color: var(--white-text-color);
   line-height: 1rem;
 }
 
-#count .board-header .title h3 span {
+#counter .board-header .title h3 span {
   display: block;
   font-family: "OpenSans-Light";
   font-size: 12px;
@@ -38,16 +36,16 @@
   color: inherit;
 }
 
-#count .board-header .title h3 span.total-users {
+#counter .board-header .title h3 span.total-users {
   display: inline-block;
 }
 
-#count .board-header .reset {
+#counter .board-header .reset {
   width: 75px;
   align-self: center;
 }
 
-#count .board-header .reset button {
+#counter .board-header .reset button {
   font-family: "OpenSans-Light";
   font-size: 12px;
   color: var(--white-text-color);
@@ -62,7 +60,7 @@
   transition: all 400ms ease-out;
 }
 
-#count .board-header .reset button:hover {
+#counter .board-header .reset button:hover {
   border-color: var(--dark-red-color);
   background: var(--dark-red-color);
 }
@@ -70,14 +68,14 @@
 /* ************************************************************************************************
 /* *** CHART **************************************************************************************
 /* ***********************************************************************************************/
-#count .wrapper .chart {
+#counter .board-content .counter-chart {
   position: relative;
   width: 300px;
   margin: 0 auto;
   margin-top: 20px;
 }
 
-#count .wrapper .chart .datas {
+#counter .board-content .counter-chart .counter-datas {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -85,7 +83,7 @@
   background: var(--main-black-bgcol);
 }
 
-#count .wrapper .chart .datas .col {
+#counter .board-content .counter-chart .counter-datas .col {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,11 +91,11 @@
   border-right: 1px dashed var(--contrast-gray-color);
 }
 
-#count .wrapper .chart .datas .col:last-child {
+#counter .board-content .counter-chart .counter-datas .col:last-child {
   border-right: 1px solid transparent;
 }
 
-#count .wrapper .chart .datas .col .cnt {
+#counter .board-content .counter-chart .counter-datas .col .cnt {
   font-family: "OpenSans";
   font-size: 12px;
   color: var(--white-text-color);
@@ -105,7 +103,7 @@
   text-align: center;
 }
 
-#count .wrapper .chart .datas .col .bar {
+#counter .board-content .counter-chart .counter-datas .col .bar {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -113,38 +111,38 @@
   height: 250px;
 }
 
-#count .wrapper .chart .datas .col .bar .barre {
+#counter .board-content .counter-chart .counter-datas .col .bar .barre {
   width: 60%;
   border-radius: 3px 3px 0 0;
 }
 
-#count .wrapper .chart .datas .col .bar .barre.as {
+#counter .board-content .counter-chart .counter-datas .col .bar .barre.as {
   background: var(--counter-as-color);
 }
 
-#count .wrapper .chart .datas .col .bar .barre.us {
+#counter .board-content .counter-chart .counter-datas .col .bar .barre.us {
   background: var(--counter-us-color);
 }
 
-#count .wrapper .chart .datas .col .bar .barre.sw {
+#counter .board-content .counter-chart .counter-datas .col .bar .barre.sw {
   background: var(--counter-sw-color);
 }
 
-#count .wrapper .chart .datas .col .bar .barre.ud {
+#counter .board-content .counter-chart .counter-datas .col .bar .barre.ud {
   background: var(--counter-ud-color);
 }
 
-#count .wrapper .chart .datas .col .bar .barre.ad {
+#counter .board-content .counter-chart .counter-datas .col .bar .barre.ad {
   background: var(--counter-ad-color);
 }
 
-#count .wrapper .chart .datas .col .btn {
+#counter .board-content .counter-chart .counter-datas .col .btn {
   text-align: center;
   border-top: 1px solid var(--contrast-gray-color);
   padding: 10px 0;
 }
 
-#count .wrapper .chart .datas .col .btn button {
+#counter .board-content .counter-chart .counter-datas .col .btn button {
   font-family: "OpenSans";
   font-size: 12px;
   font-weight: 600;
@@ -156,7 +154,7 @@
   transition: all 400ms ease-out;
 }
 
-#count .wrapper .chart .datas .col .btn button.clickMe {
+#counter .board-content .counter-chart .counter-datas .col .btn button.clickMe {
   color: var(--white-text-color);
   background: #14d1a2;
   background: -moz-linear-gradient(-45deg, #14d1a2 0%, #0ba07b 100%);
@@ -168,7 +166,7 @@
 /* ************************************************************************************************
 /* *** SEARCH BAR *********************************************************************************
 /* ***********************************************************************************************/
-#count .wrapper .search {
+#counter .board-content .counter-search {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -179,14 +177,14 @@
   margin: 0 auto;
 }
 
-#count .wrapper .search label {
+#counter .board-content .counter-search label {
   width: 100%;
   font-family: "OpenSans";
   font-size: 12px;
   color: var(--white-text-color);
 }
 
-#count .wrapper .search input[type="search"] {
+#counter .board-content .counter-search input[type="search"] {
   font-family: "OpenSans";
   font-size: 12px;
   color: var(--main-green-color);
@@ -200,13 +198,13 @@
   flex: 1;
 }
 
-#count .wrapper .search .clearButton.active {
+#counter .board-content .counter-search .clearButton.active {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#count .wrapper .search .fetchButton {
+#counter .board-content .counter-search .fetchButton {
   font-family: "OpenSans";
   font-size: 12px;
   color: var(--main-green-color);
@@ -218,7 +216,7 @@
   background: var(--main-black-bgcol);
 }
 
-#count .wrapper .search #autocompleteUserNames {
+#counter .board-content .counter-search .autocomplete {
   position: absolute;
   left: 0;
   top: 58px;
@@ -230,11 +228,11 @@
   border: none;
 }
 
-#count .wrapper .search #autocompleteUserNames.active {
+#counter .board-content .counter-search .autocomplete.active {
   display: block;
 }
 
-#count .wrapper .search #autocompleteUserNames button {
+#counter .board-content .counter-search .autocomplete button {
   display: block;
   width: 100%;
   font-family: "OpenSans";
@@ -250,29 +248,26 @@
   background: var(--main-black-bgcol);
 }
 
-#count .wrapper .search #autocompleteUserNames button .smallText {
+#counter .board-content .counter-search .autocomplete button .smallText {
   text-transform: none;
 }
 
-#count .wrapper .search #autocompleteUserNames button:nth-child(odd) {
-  background: var(--contrast-gray-color);
-}
-
-#count .wrapper .search #autocompleteUserNames button:focus {
+#counter .board-content .counter-search .autocomplete button:hover, 
+#counter .board-content .counter-search .autocomplete button:focus {
   font-family: "OpenSans-Bold";
 }
 
 /* ************************************************************************************************
 /* *** RECENT LOGS ********************************************************************************
 /* ***********************************************************************************************/
-#count .wrapper .logs {
+#counter .board-content .counter-logs {
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 0 10px 10px 10px;
 }
 
-#count .wrapper .logs .header {
+#counter .board-content .counter-logs .main-title {
   width: 100%;
   font-family: "OpenSans-Light";
   font-size: 12px;
@@ -281,14 +276,14 @@
   border-bottom: 1px solid var(--contrast-gray-color);
 }
 
-#count .wrapper .logs .wrapper {
+/* ************************************************************************************************
+/* *** RECENT LOGS  - LISTING *********************************************************************
+/* ***********************************************************************************************/
+#counter .board-content .counter-logslist .wrapper {
   width: 100%;
-  height: 150px;
-  overflow: hidden;
-  overflow-y: auto;
 }
 
-#count .wrapper .logs .wrapper .log {
+#counter .board-content .counter-logslist .wrapper .log {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -298,21 +293,29 @@
   background: none;
 }
 
-#count .wrapper .logs .wrapper .log span.timestamp {
+#counter .board-content .counter-logslist .wrapper .log span.timestamp, 
+#counter .board-content .counter-logslist .wrapper .log span.charname {
   width: 50%;
   font-family: "OpenSans-Light";
   font-size: 12px;
   color: var(--contrast-gray-color);
 }
 
-#count .wrapper .logs .wrapper .log span.charname {
-  width: 50%;
-  font-family: "OpenSans-Light";
-  font-size: 12px;
-  color: var(--contrast-gray-color);
+#counter .board-content .counter-logslist .wrapper .log span.charname {
   text-transform: capitalize;
 }
 
-#count .wrapper .logs .wrapper .log span.charname .smallText {
+#counter .board-content .counter-logslist .wrapper .log:hover span.timestamp, 
+#counter .board-content .counter-logslist .wrapper .log:hover span.charname {
+color: var(--white-text-color);
+}
+
+#counter
+  .board-content
+  .counter-logslist
+  .wrapper
+  .log
+  span.charname
+  .smallText {
   text-transform: none;
 }

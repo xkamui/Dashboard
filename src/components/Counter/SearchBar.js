@@ -35,7 +35,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="search">
+    <div className="board-zone counter-search">
       <label htmlFor="searchUserName">
         Input username: ({listUsers.length} records)
       </label>
@@ -54,7 +54,6 @@ export default function SearchBar() {
         Fetch
       </button>
       <div
-        id="autocompleteUserNames"
         className={`autocomplete ${
           searchValue !== "" && searchActive ? "active" : ""
         }`}

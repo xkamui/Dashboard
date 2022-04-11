@@ -70,13 +70,13 @@ export default function AdminFlags() {
   };
 
   return (
-    <div className="wrapperAdmin">
-      <div className="newFlagForm">
+    <div className="board-content">
+      <div className="board-zone memos-admin-form">
         <div className="formRow">
           <label htmlFor="newFlagTerm">Filter or create a new flag: </label>
           <input
             type="search"
-            name="newFlag"
+            name="newFlagTerm"
             required
             value={flagObject.term}
             onChange={(e) => handleSearch(e.target.value)}
@@ -99,14 +99,13 @@ export default function AdminFlags() {
           </button>
         </div>
         <div className="formRow">
-          <button
-            className="saveFlagButton"
-            onClick={() => saveNewFlag()}
-          >{`Save ${flagObject.id === null ? "as a new" : ""} flag`}</button>
+          <button className="saveButton" onClick={() => saveNewFlag()}>{`Save ${
+            flagObject.id === null ? "as a new" : ""
+          } flag`}</button>
         </div>
       </div>
-      <div className="listingDatas">
-        <div className="wrapperListing">
+      <div className="board-zone scroll memos-admin-list">
+        <div className="wrapper">
           {memosFlagsList
             .filter((flag) =>
               flag.term.toLowerCase().includes(flagObject.term.toLowerCase())

@@ -8,9 +8,9 @@ export default function Flag(props) {
   }
 
   return (
-    <div className={`flag ${props.flag.good_bad}`}>
-      <div className="flagTerm" onClick={() => handleEdit(props.flag)}>
-        <span></span> {props.flag.term}
+    <div className={`item ${props.flag.good_bad}`}>
+      <div className="item-name" onClick={() => handleEdit(props.flag)}>
+        <span className="item-dots"></span> {props.flag.term}
       </div>
       <div className="actions">
         <ul>

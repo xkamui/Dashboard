@@ -1,13 +1,32 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 export default function AdminMenus() {
-    return (
-      <div className="board-header">
-          <ul>
-            <li><NavLink to='/admin-characters'>Characters</NavLink></li>
-            <li><NavLink to='/admin-flags'>Flags</NavLink></li>
-            <li><NavLink to='/admin-reasons'>Reasons</NavLink></li>
-          </ul>
+  return (
+    <div className="board-content">
+      <div className="board-zone scroll memos-admin-menu">
+        <ul>
+          <li>
+            <NavLink to="/admin-accounts">
+              <button>Accounts</button>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin-characters">
+              <button>Characters</button>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin-flags">
+              <button>Flags</button>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin-reasons">
+              <button>Reasons</button>
+            </NavLink>
+          </li>
+        </ul>
       </div>
-    );
-  }
+    </div>
+  );
+}
